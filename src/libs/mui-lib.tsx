@@ -1,0 +1,27 @@
+import dynamic from 'next/dynamic';
+
+export const MuiBox = dynamic(() => import('@mui/material/Box'));
+export const MuiPaper = dynamic(() => import('@mui/material/Paper'));
+export const MuiInputBase = dynamic(() => import('@mui/material/InputBase'));
+export const MuiIconButton = dynamic(() => import('@mui/material/IconButton'));
+export const MuiChip = dynamic(() => import('@mui/material/Chip'));
+export const MuiContainer = dynamic(() => import('@mui/material/Container'));
+export const MuiTypography = dynamic(() => import('@mui/material/Typography'));
+export const MuiButton = dynamic(() => import('@mui/material/Button'));
+export const MuiDivider = dynamic(() => import('@mui/material/Divider'));
+export const MuiGrid = dynamic(() => import('@mui/material/Grid'));
+export const MuiAppBar = dynamic(() => import('@mui/material/AppBar'));
+export const MuiToolbar = dynamic(() => import('@mui/material/Toolbar'));
+export const MuiMenu = dynamic(() => import('@mui/material/Menu'));
+export const MuiMenuItem = dynamic(() => import('@mui/material/MenuItem'));
+export const MuiAvatar = dynamic(() => import('@mui/material/Avatar'));
+export const MuiTooltip = dynamic(() => import('@mui/material/Tooltip'));
+export const MuiBottomNavigation = dynamic(() => import('@mui/material/BottomNavigation'));
+export const MuiBottomNavigationAction = dynamic(() => import('@mui/material/BottomNavigationAction'));
+export const MuiFormControlLabel = dynamic(() => import('@mui/material/FormControlLabel'));
+export const MuiCheckbox = dynamic(() => import('@mui/material/Checkbox'));
+export const MuiDrawer = dynamic(() => import('@mui/material/Drawer'));
+export const MuiTextField = dynamic(() => import('@mui/material/TextField'));
+export const MuiAccordion = dynamic(() => import('@mui/material/Accordion'));
+export const MuiAccordionSummary = dynamic(() => import('@mui/material/AccordionSummary'));
+export const MuiAccordionDetails = dynamic(() => import('@mui/material/AccordionDetails'));

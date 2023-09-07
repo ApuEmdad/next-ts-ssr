@@ -1,0 +1,34 @@
+@import '../../../styles/common.variables.scss';
+
+.custom-header {
+  background: $primaryBgColor !important;
+  background-color: $primaryBgColor !important;
+  background: $primaryColor;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+  position: fixed;
+  top: 0;
+
+  .MuiButton-text {
+    color: $primaryTextColor;
+  }
+
+  .login-btn {
+    background: $primaryColor;
+    color: $primaryBgColor;
+    font-weight: 500;
+    padding: 4px 16px;
+
+    &:hover {
+      background: $primaryColor;
+      color: $primaryBgColor;
+    }
+  }
+
+  .signup-btn {
+    color: $primaryColor;
+  }
+
+  .ham-menu {
+    color: $primaryColor;
+  }
+}
