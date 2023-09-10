@@ -47,101 +47,58 @@ export default function DefaultNavbar() {
     marginRight: '10px',
   };
 
-  return (
-    <MuiAppBar position="fixed" className="custom-header">
-      <MuiContainer maxWidth="xl">
-        <MuiToolbar disableGutters>
-          <MuiBox
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'space-between',
-              paddingX: '30px',
-            }}
-          >
-            <MuiBox sx={{ display: 'flex' }}>
-              <MuiButton
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 1,
-                  color: 'white',
-                  fontWeight: 'bold',
-                  display: 'flex',
-                }}
-              >
-                <img
-                  src={
-                    'https://yt3.googleusercontent.com/zhjPWihi4oNSqMP93iEa06B_iKJiZ1QsaDEvZwuHV97PhIoQf4z9iIjKOGaMkPi-dQVDq83p7w=s900-c-k-c0x00ffffff-no-rj'
-                  }
-                  alt="QF Logo"
-                  style={imageStyle}
-                  width={50}
-                  height={50}
-                />
-                {/* <img
-                  src="https://yt3.googleusercontent.com/zhjPWihi4oNSqMP93iEa06B_iKJiZ1QsaDEvZwuHV97PhIoQf4z9iIjKOGaMkPi-dQVDq83p7w=s900-c-k-c0x00ffffff-no-rj"
-                  alt=""
-                  style={imageStyle}
-                /> */}
-                <MuiTypography variant="h5" fontSize="22px" fontWeight="bold">
-                  Quality Framework
-                </MuiTypography>
-              </MuiButton>
-            </MuiBox>
-            <MuiBox sx={{ display: 'flex' }}>
-              {pages.map((page) => (
-                <MuiButton
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    my: 1,
-                    color: 'white',
-                    fontWeight: 'bold',
-                    display: 'block',
-                    fontSize: '12px',
-                    fontFamily: 'Lato, sans-serif',
-                  }}
-                >
-                  {page}
-                </MuiButton>
-              ))}
-            </MuiBox>
-          </MuiBox>
+  const Wrapper = styled(MuiBox)({
+    width: '100%',
+    padding:'10px 20px',
+    display:'flex',
+    alignItems:'center',
+    justifyContent: 'space-between',
+    position:'fixed',
+  })
 
-          <MuiBox sx={{ flexGrow: 0, display: 'flex' }}>
-            <MuiButton className="signup-btn">Shortcuts</MuiButton>
-            <MuiTooltip title="Open settings">
-              <div>
-                <MuiIconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <MuiAvatar alt="Remy Sharp" />
-                </MuiIconButton>
-              </div>
-            </MuiTooltip>
-            <CustomMenu
-              sx={{ mt: '45px' }}
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MuiMenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <MuiTypography textAlign="center">{setting}</MuiTypography>
-                </MuiMenuItem>
-              ))}
-            </CustomMenu>
-          </MuiBox>
-        </MuiToolbar>
-      </MuiContainer>
-    </MuiAppBar>
+
+  const NavBox = styled(MuiBox)({
+    display:'flex',
+    alignItems:'center',
+    justifyContent:'space-between',
+    gap:'10px'
+  })
+
+  const NavItem = styled(MuiButton)({
+    color:'black',
+    '&:hover':{
+      color:'red'
+    }
+  })
+
+  const OutlinedButton = styled(MuiButton)({
+    border:'1px solid red',
+    backgroundColor:'transparent',
+    color:'red',
+    marginRight:'10px',
+  })
+
+  return (
+    <Wrapper>
+        <NavBox>
+          {/* Image */}
+          <MuiTypography variant='h5' sx={{fontWeight:'700'}}>QUALITY FRAMEWORK</MuiTypography>
+        </NavBox>
+        <NavBox>
+          {
+            pages.map((item, i )=> <NavItem
+            key={i}>
+              <MuiTypography
+              sx={{fontWeight:'700'}}
+              variant='body2'>{item}</MuiTypography>
+              </NavItem>)
+          }
+        </NavBox>
+        <NavBox>
+          <OutlinedButton>Shortcuts</OutlinedButton>
+          <MuiAvatar></MuiAvatar>
+        </NavBox>
+    </Wrapper>
   );
 }
 
