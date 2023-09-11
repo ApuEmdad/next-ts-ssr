@@ -59,16 +59,13 @@ export default function BottomNav() {
     color: var(--primary-color);
 }
 `;
-const isMd = useMediaQuery('(min-width:900px)');
-const isSm = useMediaQuery('(min-width:700px)');
-const isXs = useMediaQuery('(min-width:450px)')
-
-console.log(isMd, isSm, isXs);
+const isMd = useMediaQuery('(min-width:600px)');
 // console.log(isSm);
 const BottomNavMenu = styled(MuiMenu)({
   height:'100%',
   '.MuiMenu-paper': {
-    top: isMd ? '68% !important' : isSm ? '55% !important' : '55% !important',
+    // top: isMd ? '68% !important' : isSm ? '45% !important' : '45% !important',
+    top: isMd?'calc(100% - 20rem) !important':'calc(100% - 25rem) !important',
     left: '10% !important',
     bottom:'5%',
     height:'fit-content'
