@@ -25,6 +25,7 @@ export const settings = ['My Profile', 'Notification', 'Settings', 'Logout'];
 
 export default function DefaultNavbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorElNav);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -49,7 +50,7 @@ export default function DefaultNavbar() {
 
   const Wrapper = styled(MuiBox)({
     width: '100%',
-    padding:'10px 20px',
+    padding:'1.5rem 2rem',
     display:'flex',
     alignItems:'center',
     justifyContent: 'space-between',
@@ -96,8 +97,28 @@ export default function DefaultNavbar() {
         </NavBox>
         <NavBox>
           <OutlinedButton>Shortcuts</OutlinedButton>
-          <MuiAvatar></MuiAvatar>
+          <MuiAvatar 
+          id='basic-button'
+          aria-controls={open? 'basic-menu': undefined}
+          aria-haspopup='true'
+          aria-expanded={open?'true':undefined}
+          onClick={handleOpenNavMenu}
+          ></MuiAvatar>
         </NavBox>
+        <CustomMenu
+        id='basic-menu'
+        anchorEl={anchorElNav}
+        open={open}
+        onClose={handleCloseNavMenu}
+        MenuListProps={{
+          'aria-labelledby':'basic-button'
+        }}
+        >
+          <MuiMenuItem onClick={handleCloseNavMenu}>Profile</MuiMenuItem>
+          <MuiMenuItem onClick={handleCloseNavMenu}>Account</MuiMenuItem>
+          <MuiMenuItem onClick={handleCloseNavMenu}>Login</MuiMenuItem>
+
+        </CustomMenu>
     </Wrapper>
   );
 }
@@ -126,8 +147,12 @@ export const CustomMenu = styled(MuiMenu)({
           // background: "#da291cbf",
           // color: "#FFF",
         },
-        '.MuiTypography-body1': {},
       },
     },
   },
+  '.MuiMenu-paper':{
+    right: '1rem',
+    top: '4rem !important',
+    left: '80% !important',
+  }
 });

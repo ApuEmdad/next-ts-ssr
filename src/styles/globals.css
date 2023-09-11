@@ -17,6 +17,7 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+  --primary-color:#DA291C;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -66,3 +67,5 @@ a {
     color-scheme: dark;
   }
 }
+
+
