@@ -42,8 +42,8 @@ export default function BottomNav() {
 
   const BottomNav = styled(MuiBottomNavigation)`
   position: fixed;
+  width:100%;
   bottom: 0;
-  left: 30%;
   background-color: rgb(235,235,235,0.5);
   backdrop-filter:blur(2px);
   border-top-right-radius: 2px;
@@ -68,8 +68,8 @@ console.log(isMd, isSm, isXs);
 const BottomNavMenu = styled(MuiMenu)({
   height:'100%',
   '.MuiMenu-paper': {
-    top: isMd ? '68% !important' : isSm ? '50% !important' : '25% !important',
-    left: '30% !important',
+    top: isMd ? '68% !important' : isSm ? '55% !important' : '55% !important',
+    left: '10% !important',
     bottom:'5%',
     height:'fit-content'
   }
