@@ -22,7 +22,7 @@ import { MuiBottomNavigation, MuiBottomNavigationAction, MuiMenuItem } from '../
 
 // import './styles.module.scss';
 import dynamic from 'next/dynamic';
-import { styled, useMediaQuery, useTheme } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 
 export default function BottomNav() {
   const [value, setValue] = useState('recents');
@@ -70,6 +70,7 @@ export default function BottomNav() {
     color: var(--primary-color);
 }
 `;
+<<<<<<< HEAD
 const isMd = useMediaQuery('(min-width:600px)');
 // console.log(isSm);
 const BottomNavMenu = styled(MuiMenu)({
@@ -81,6 +82,20 @@ const BottomNavMenu = styled(MuiMenu)({
     height:'fit-content'
   }
 })
+=======
+  const isMd = useMediaQuery('(min-width:600px)');
+  // console.log(isSm);
+  const BottomNavMenu = styled(MuiMenu)({
+    height: '100%',
+    '.MuiMenu-paper': {
+      // top: isMd ? '68% !important' : isSm ? '45% !important' : '45% !important',
+      top: isMd ? 'calc(100% - 20rem) !important' : 'calc(100% - 25rem) !important',
+      left: '10% !important',
+      bottom: '5%',
+      height: 'fit-content'
+    }
+  })
+>>>>>>> 253e2519e41718a866ddc66c9e57a81e924ed592
 
 const BottomUserMenu = styled(MuiMenu)({
   height:'100%',
@@ -102,15 +117,22 @@ const BottomMenuItem = styled(MuiMenuItem)({
 
 
   return (
-      <BottomNav value={value} onChange={handleChange} showLabels>
-          <MuiBottomNavigationAction label="Pages" value="pages" icon={<WebIcon />} 
+    <BottomNav value={value} onChange={handleChange} showLabels>
+      <MuiBottomNavigationAction label="Pages" value="pages" icon={<WebIcon />}
         onClick={handleClick}
         id='basic-button'
-        aria-controls={open?'basic-menu':undefined}
+        aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup='true'
+<<<<<<< HEAD
         aria-expanded={open?'true':undefined}
         />
           <BottomNavMenu
+=======
+        aria-expanded={open ? 'true' : undefined}
+      />
+      <div>
+        <BottomNavMenu
+>>>>>>> 253e2519e41718a866ddc66c9e57a81e924ed592
           id="basic-menu"
           anchorEl={anchorEl}
           open={open}
@@ -120,6 +142,7 @@ const BottomMenuItem = styled(MuiMenuItem)({
           }}
         >
           {
+<<<<<<< HEAD
             pages.map((item, i )=> <BottomMenuItem
             key={i}
             onClick={handleClose}>{item}</BottomMenuItem>)
@@ -152,5 +175,18 @@ const BottomMenuItem = styled(MuiMenuItem)({
           }
         </BottomUserMenu>
       </BottomNav>
+=======
+            pages.map((item, i) => <MuiMenuItem
+              sx={{ '&:hover': { color: 'var(--primary-color)' } }}
+              key={i}
+              onClick={handleClose}>{item}</MuiMenuItem>)
+          }
+        </BottomNavMenu>
+      </div>
+      <MuiBottomNavigationAction label="Sign Up" value="signup" icon={<AppRegistrationIcon />} />
+      <MuiBottomNavigationAction label="Login" value="login" icon={<LoginIcon />} />
+      <MuiBottomNavigationAction label="User" value="user" icon={<AccountCircleIcon />} />
+    </BottomNav>
+>>>>>>> 253e2519e41718a866ddc66c9e57a81e924ed592
   );
 }

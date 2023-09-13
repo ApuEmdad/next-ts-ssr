@@ -25,6 +25,7 @@ export const settings = ['My Profile', 'Notification', 'Settings', 'Logout'];
 
 export default function DefaultNavbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
   const open = Boolean(anchorElNav);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -50,75 +51,75 @@ export default function DefaultNavbar() {
 
   const Wrapper = styled(MuiBox)({
     width: '100%',
-    padding:'1.5rem 2rem',
-    display:'flex',
-    alignItems:'center',
+    padding: '1.5rem 2rem',
+    display: 'flex',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    position:'fixed',
+    position: 'fixed',
+    top: 0,
   })
 
-
   const NavBox = styled(MuiBox)({
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'space-between',
-    gap:'10px'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '10px'
   })
 
   const NavItem = styled(MuiButton)({
-    color:'black',
-    '&:hover':{
-      color:'red'
+    color: 'black',
+    '&:hover': {
+      color: 'red'
     }
   })
 
   const OutlinedButton = styled(MuiButton)({
-    border:'1px solid red',
-    backgroundColor:'transparent',
-    color:'red',
-    marginRight:'10px',
+    border: '1px solid red',
+    backgroundColor: 'transparent',
+    color: 'red',
+    marginRight: '10px',
   })
 
   return (
     <Wrapper>
-        <NavBox>
-          {/* Image */}
-          <MuiTypography variant='h5' sx={{fontWeight:'700'}}>QUALITY FRAMEWORK</MuiTypography>
-        </NavBox>
-        <NavBox>
-          {
-            pages.map((item, i )=> <NavItem
+      <NavBox>
+        {/* Image */}
+        <MuiTypography variant='h5' sx={{ fontWeight: '700' }}>QUALITY FRAMEWORK</MuiTypography>
+      </NavBox>
+      <NavBox>
+        {
+          pages.map((item, i) => <NavItem
             key={i}>
-              <MuiTypography
-              sx={{fontWeight:'700'}}
+            <MuiTypography
+              sx={{ fontWeight: '700' }}
               variant='body2'>{item}</MuiTypography>
-              </NavItem>)
-          }
-        </NavBox>
-        <NavBox>
-          <OutlinedButton>Shortcuts</OutlinedButton>
-          <MuiAvatar 
+          </NavItem>)
+        }
+      </NavBox>
+      <NavBox>
+        <OutlinedButton>Shortcuts</OutlinedButton>
+        <MuiAvatar
           id='basic-button'
-          aria-controls={open? 'basic-menu': undefined}
+          aria-controls={open ? 'basic-menu' : undefined}
           aria-haspopup='true'
-          aria-expanded={open?'true':undefined}
+          aria-expanded={open ? 'true' : undefined}
           onClick={handleOpenNavMenu}
-          ></MuiAvatar>
-        </NavBox>
-        <CustomMenu
+        ></MuiAvatar>
+      </NavBox>
+      <CustomMenu
         id='basic-menu'
         anchorEl={anchorElNav}
         open={open}
         onClose={handleCloseNavMenu}
         MenuListProps={{
-          'aria-labelledby':'basic-button'
+          'aria-labelledby': 'basic-button'
         }}
-        >
-          <MuiMenuItem onClick={handleCloseNavMenu}>Profile</MuiMenuItem>
-          <MuiMenuItem onClick={handleCloseNavMenu}>Account</MuiMenuItem>
-          <MuiMenuItem onClick={handleCloseNavMenu}>Login</MuiMenuItem>
+      >
+        <MuiMenuItem onClick={handleCloseNavMenu}>Profile</MuiMenuItem>
+        <MuiMenuItem onClick={handleCloseNavMenu}>Account</MuiMenuItem>
+        <MuiMenuItem onClick={handleCloseNavMenu}>Login</MuiMenuItem>
 
-        </CustomMenu>
+      </CustomMenu>
     </Wrapper>
   );
 }
@@ -150,7 +151,7 @@ export const CustomMenu = styled(MuiMenu)({
       },
     },
   },
-  '.MuiMenu-paper':{
+  '.MuiMenu-paper': {
     right: '1rem',
     top: '4rem !important',
     left: '80% !important',
