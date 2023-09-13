@@ -31,13 +31,25 @@ export default function BottomNav() {
     setValue(newValue);
   };
 
+  const user = ['profile', 'account', 'login'];
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const openUser = Boolean(anchorElUser);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(event.currentTarget);
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleUserClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleUserClose = () => {
+    setAnchorElUser(null);
   };
 
   const BottomNav = styled(MuiBottomNavigation)`
@@ -54,7 +66,6 @@ export default function BottomNav() {
       color:#DA291C;
     }
   }
-
   .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
     color: var(--primary-color);
 }
@@ -64,13 +75,31 @@ const isMd = useMediaQuery('(min-width:600px)');
 const BottomNavMenu = styled(MuiMenu)({
   height:'100%',
   '.MuiMenu-paper': {
-    // top: isMd ? '68% !important' : isSm ? '45% !important' : '45% !important',
     top: isMd?'calc(100% - 20rem) !important':'calc(100% - 25rem) !important',
     left: '10% !important',
     bottom:'5%',
     height:'fit-content'
   }
 })
+
+const BottomUserMenu = styled(MuiMenu)({
+  height:'100%',
+  '.MuiMenu-paper': {
+    top: isMd?'calc(100% - 11rem) !important':'calc(100% - 13rem) !important',
+    left: '15% !important',
+    bottom:'5%',
+    height:'fit-content'
+  }
+})
+
+const BottomMenuItem = styled(MuiMenuItem)({
+  textTransform:'capitalize',
+  '&:hover':{
+    color:'var(--primary-color)'
+  }
+})
+
+
 
   return (
       <BottomNav value={value} onChange={handleChange} showLabels>
@@ -81,7 +110,6 @@ const BottomNavMenu = styled(MuiMenu)({
         aria-haspopup='true'
         aria-expanded={open?'true':undefined}
         />
-        <div>
           <BottomNavMenu
           id="basic-menu"
           anchorEl={anchorEl}
@@ -92,16 +120,37 @@ const BottomNavMenu = styled(MuiMenu)({
           }}
         >
           {
-            pages.map((item, i )=> <MuiMenuItem
-            sx={{'&:hover':{color:'var(--primary-color)'}}}
+            pages.map((item, i )=> <BottomMenuItem
             key={i}
-            onClick={handleClose}>{item}</MuiMenuItem>)
+            onClick={handleClose}>{item}</BottomMenuItem>)
           }
         </BottomNavMenu>
-        </div>
         <MuiBottomNavigationAction label="Sign Up" value="signup" icon={<AppRegistrationIcon />} />
         <MuiBottomNavigationAction label="Login" value="login" icon={<LoginIcon />} />
-        <MuiBottomNavigationAction label="User" value="user" icon={<AccountCircleIcon />} />
+        <MuiBottomNavigationAction
+        onClick={handleUserClick}
+        id='basic-button1'
+        aria-controls={openUser?'basic-menu1':undefined}
+        aria-haspopup='true'
+        aria-expanded={openUser?'true':undefined}
+        label="User" value="user" icon={<AccountCircleIcon />} />
+        <BottomUserMenu
+          sx={{left:'70% !important',
+        }}
+          id="basic-menu1"
+          anchorEl={anchorElUser}
+          open={openUser}
+          onClose={handleUserClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button1',
+          }}
+        >
+          {
+            user.map((item, i )=> <BottomMenuItem
+            key={i}
+            onClick={handleUserClose}>{item}</BottomMenuItem>)
+          }
+        </BottomUserMenu>
       </BottomNav>
   );
 }
