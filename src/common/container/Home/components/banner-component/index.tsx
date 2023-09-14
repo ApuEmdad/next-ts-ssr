@@ -1,6 +1,6 @@
 import { MuiBox, MuiChip, MuiIconButton, MuiInputBase, MuiPaper } from '@/libs/mui-lib';
 
-import styled from '@emotion/styled';
+import { styled, useMediaQuery } from '@mui/material';
 
 import { MuiSearch } from '@/libs/mui-icons';
 
@@ -19,18 +19,20 @@ const Banner = () => {
   });
 
   const Wrapper = styled(MuiBox)({
-    width: '60%',
+    width: '80%',
+    margin: '0px auto',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   });
 
+  const isMd = useMediaQuery('(min-width:690px)');
   const MuiSearchPaper = styled(MuiPaper)({
     padding: '2px 30px',
     display: 'flex',
     alignItems: 'center',
-    width: '60%',
+    width: isMd?'60%':'100%',
     marginBottom: '26px',
   });
 
@@ -39,7 +41,20 @@ const Banner = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    '@media(max-width: 867px)':{
+      flexDirection:'column',
+      gap:'0.5rem'
+
+    }
   });
+
+  const Chips = styled(MuiBox)({
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    flexWrap:'wrap',
+    gap:'0.3rem'
+  })
 
   const PopularText = styled('span')({
     fontSize: '16px',
@@ -49,9 +64,8 @@ const Banner = () => {
 
   const Suggestion = styled(MuiChip)({
     color: 'white',
-    padding: '4px',
+    padding: '2px',
     cursor: 'pointer',
-    margin: '0px 5px',
   });
   /* ==== Styled Component ===== */
 
@@ -68,14 +82,16 @@ const Banner = () => {
 
         <MuiSearchPaper>
           <MuiIconButton sx={{ p: '10px' }}>{/* <MuiSearch /> */}</MuiIconButton>
-          <MuiInputBase sx={{ ml: 1, flex: 1 }} placeholder='MuiSearch the quality framework ' />
+          <MuiInputBase sx={{ ml: 1, flex: 1 }} placeholder='Search the quality framework ' />
         </MuiSearchPaper>
 
         <ChipsContainer>
-          <PopularText>Popular MuiSearches:</PopularText>
-          {chipsText.map((chip) => (
-            <Suggestion key={chip} {...suggestionProps(chip)} />
-          ))}
+          <PopularText>Popular Searches:</PopularText>
+          <Chips>
+            {chipsText.map((chip) => (
+              <Suggestion key={chip} {...suggestionProps(chip)} />
+            ))}
+          </Chips>
         </ChipsContainer>
         
       </Wrapper>

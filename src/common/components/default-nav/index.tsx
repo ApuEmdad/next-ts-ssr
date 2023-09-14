@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
-import styled from '@emotion/styled';
+import { styled, useMediaQuery } from '@mui/material';
 
 import {
   MuiAppBar,
@@ -24,30 +24,25 @@ export const pages = ['Home', 'About the QF', 'QF Contacts', 'Quality Standard',
 export const settings = ['My Profile', 'Notification', 'Settings', 'Logout'];
 
 export default function DefaultNavbar() {
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState(false);
 
   const open = Boolean(anchorElNav);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+    setAnchorElNav(!anchorElNav);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setAnchorElNav(false);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   const imageStyle = {
     width: '47px',
     height: '50px',
     marginRight: '10px',
   };
+
+  const isMd = useMediaQuery('(max-width:1420px)');
 
   const Wrapper = styled(MuiBox)({
     width: '100%',
@@ -57,7 +52,10 @@ export default function DefaultNavbar() {
     justifyContent: 'space-between',
     position: 'fixed',
     top: 0,
-  })
+    backgroundColor: '#fff',
+    height: isMd ? '100px' : '90px' ,
+    zIndex:'1'
+    })
 
   const NavBox = styled(MuiBox)({
     display: 'flex',
@@ -74,17 +72,30 @@ export default function DefaultNavbar() {
   })
 
   const OutlinedButton = styled(MuiButton)({
-    border: '1px solid red',
+    border: '1px solid var(--primary-color)',
     backgroundColor: 'transparent',
-    color: 'red',
+    color: 'var(--primary-color)',
     marginRight: '10px',
+    '&:hover':{
+      backgroundColor:'var(--primary-color)',
+      color:'#fff'
+    }
   })
 
+  const DropDown = styled(MuiButton)({
+    cursor:'pointer',
+    '&:hover':{
+      backgroundColor: 'transparent',
+    }
+  })
+
+
+  const dropdown = useRef(null)
   return (
     <Wrapper>
       <NavBox>
         {/* Image */}
-        <MuiTypography variant='h5' sx={{ fontWeight: '700' }}>QUALITY FRAMEWORK</MuiTypography>
+        <MuiTypography variant='h5' sx={{ fontWeight: '700', cursor:'pointer' }}>QUALITY FRAMEWORK</MuiTypography>
       </NavBox>
       <NavBox>
         {
@@ -96,30 +107,32 @@ export default function DefaultNavbar() {
           </NavItem>)
         }
       </NavBox>
+
       <NavBox>
         <OutlinedButton>Shortcuts</OutlinedButton>
-        <MuiAvatar
-          id='basic-button'
-          aria-controls={open ? 'basic-menu' : undefined}
-          aria-haspopup='true'
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleOpenNavMenu}
-        ></MuiAvatar>
+        <DropDown ref={dropdown}>
+          <MuiAvatar
+            id='basic-button'
+            onClick={handleOpenNavMenu}
+            data-testid='UserDropDown'
+          ></MuiAvatar>
+        </DropDown>
       </NavBox>
-      <CustomMenu
+      {open && (
+        <CustomMenu
         id='basic-menu'
-        anchorEl={anchorElNav}
+        anchorEl={dropdown.current}
         open={open}
         onClose={handleCloseNavMenu}
         MenuListProps={{
           'aria-labelledby': 'basic-button'
         }}
       >
-        <MuiMenuItem onClick={handleCloseNavMenu}>Profile</MuiMenuItem>
-        <MuiMenuItem onClick={handleCloseNavMenu}>Account</MuiMenuItem>
-        <MuiMenuItem onClick={handleCloseNavMenu}>Login</MuiMenuItem>
-
+        {
+          settings.map((item, i) =><MuiMenuItem key={i} onClick={handleCloseNavMenu}>{item}</MuiMenuItem> )
+        }
       </CustomMenu>
+      )}
     </Wrapper>
   );
 }
@@ -127,33 +140,37 @@ export default function DefaultNavbar() {
 export const CustomMenu = styled(MuiMenu)({
   '.MuiPaper-root': {
     boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+    
 
     '.MuiList-root': {
-      background: '#FFF',
       padding: '8px',
-      minWidth: '235px',
+      width: '200px',
       display: 'flex',
       flexDirection: 'column',
       rowGap: '8px',
+      zIndex:'100',
+      justifyContent: 'center',
 
       '.MuiMenuItem-root': {
         transition: '0.5s',
-        borderRadius: '4px',
-        borderBottom: '1px solid #cdaaaa',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
 
         '&:hover': {
-          // background: "#da291cbf",
-          // color: "#FFF",
+          // background: '#da291cbf',
+          color: 'var(--primary-color)',
         },
       },
     },
   },
   '.MuiMenu-paper': {
-    right: '1rem',
-    top: '4rem !important',
-    left: '80% !important',
+    width:'fit-content',
+    // right: '1rem',
+    top: '5rem !important',
+    left: '85% !important',
+    transform:'none',
+    transition:'opacity 272ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 181ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important',
+    transformOrigin: '0px 0px !important',
   }
 });
