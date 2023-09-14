@@ -9,11 +9,11 @@ const LayOut = ({ children }: React.FC | any) => {
     <div>
       <Header />
       {
-        isMd && <MuiBox marginTop='80px'></MuiBox>
+        isMd && <MuiBox marginTop={{ lg: '90px', md: '100px' }}></MuiBox>
       }
       <MuiBox >{children}</MuiBox>
       <h5>Footer</h5>
-    </div>
+    </div >
   );
 };
 

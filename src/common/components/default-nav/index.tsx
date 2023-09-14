@@ -5,17 +5,7 @@ import { useRef, useState } from 'react';
 import { styled, useMediaQuery } from '@mui/material';
 
 import {
-  MuiAppBar,
-  MuiContainer,
-  MuiToolbar,
-  MuiBox,
-  MuiButton,
-  MuiTypography,
-  MuiTooltip,
-  MuiIconButton,
-  MuiAvatar,
-  MuiMenuItem,
-  MuiMenu,
+  MuiBox, MuiButton, MuiTypography, MuiAvatar, MuiMenuItem, MuiMenu, MuiPaper
 } from '../../../libs/mui-lib';
 
 import './styles.module.scss';
@@ -44,7 +34,7 @@ export default function DefaultNavbar() {
 
   const isMd = useMediaQuery('(max-width:1420px)');
 
-  const Wrapper = styled(MuiBox)({
+  const Wrapper = styled(MuiPaper)({
     width: '100%',
     padding: '1.5rem 2rem',
     display: 'flex',
@@ -53,9 +43,10 @@ export default function DefaultNavbar() {
     position: 'fixed',
     top: 0,
     backgroundColor: '#fff',
-    height: isMd ? '100px' : '90px' ,
-    zIndex:'1'
-    })
+    height: isMd ? '100px' : '90px',
+    zIndex: '1',
+    borderRadius: '0px'
+  })
 
   const NavBox = styled(MuiBox)({
     display: 'flex',
@@ -76,15 +67,15 @@ export default function DefaultNavbar() {
     backgroundColor: 'transparent',
     color: 'var(--primary-color)',
     marginRight: '10px',
-    '&:hover':{
-      backgroundColor:'var(--primary-color)',
-      color:'#fff'
+    '&:hover': {
+      backgroundColor: 'var(--primary-color)',
+      color: '#fff'
     }
   })
 
   const DropDown = styled(MuiButton)({
-    cursor:'pointer',
-    '&:hover':{
+    cursor: 'pointer',
+    '&:hover': {
       backgroundColor: 'transparent',
     }
   })
@@ -95,7 +86,7 @@ export default function DefaultNavbar() {
     <Wrapper>
       <NavBox>
         {/* Image */}
-        <MuiTypography variant='h5' sx={{ fontWeight: '700', cursor:'pointer' }}>QUALITY FRAMEWORK</MuiTypography>
+        <MuiTypography variant='h5' sx={{ fontWeight: '700', cursor: 'pointer' }}>QUALITY FRAMEWORK</MuiTypography>
       </NavBox>
       <NavBox>
         {
@@ -120,18 +111,18 @@ export default function DefaultNavbar() {
       </NavBox>
       {open && (
         <CustomMenu
-        id='basic-menu'
-        anchorEl={dropdown.current}
-        open={open}
-        onClose={handleCloseNavMenu}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button'
-        }}
-      >
-        {
-          settings.map((item, i) =><MuiMenuItem key={i} onClick={handleCloseNavMenu}>{item}</MuiMenuItem> )
-        }
-      </CustomMenu>
+          id='basic-menu'
+          anchorEl={dropdown.current}
+          open={open}
+          onClose={handleCloseNavMenu}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button'
+          }}
+        >
+          {
+            settings.map((item, i) => <MuiMenuItem key={i} onClick={handleCloseNavMenu}>{item}</MuiMenuItem>)
+          }
+        </CustomMenu>
       )}
     </Wrapper>
   );
@@ -140,7 +131,7 @@ export default function DefaultNavbar() {
 export const CustomMenu = styled(MuiMenu)({
   '.MuiPaper-root': {
     boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
-    
+
 
     '.MuiList-root': {
       padding: '8px',
@@ -148,7 +139,7 @@ export const CustomMenu = styled(MuiMenu)({
       display: 'flex',
       flexDirection: 'column',
       rowGap: '8px',
-      zIndex:'100',
+      zIndex: '100',
       justifyContent: 'center',
 
       '.MuiMenuItem-root': {
@@ -165,12 +156,12 @@ export const CustomMenu = styled(MuiMenu)({
     },
   },
   '.MuiMenu-paper': {
-    width:'fit-content',
+    width: 'fit-content',
     // right: '1rem',
     top: '5rem !important',
     left: '85% !important',
-    transform:'none',
-    transition:'opacity 272ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 181ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important',
+    transform: 'none',
+    transition: 'opacity 272ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 181ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important',
     transformOrigin: '0px 0px !important',
   }
 });
