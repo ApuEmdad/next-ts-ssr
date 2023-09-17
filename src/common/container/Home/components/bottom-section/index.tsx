@@ -1,5 +1,5 @@
 import { MuiBox, MuiTypography, MuiContainer, MuiButton } from '@/libs/mui-lib';
-
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import styled from '@emotion/styled';
 
 const BottomSection = () => {
@@ -17,6 +17,19 @@ const BottomSection = () => {
     color: '#000'
   });
 
+  const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+  });
+  
+
   return (
     <MuiContainer sx={{ padding: '70px 0px' }}>
       <TextContainer>
@@ -26,8 +39,9 @@ const BottomSection = () => {
           below.
         </Text>
       </TextContainer>
-      <MuiButton variant="contained" color="error" sx={{ margin: '30px 55px' }}>
+      <MuiButton startIcon={<CloudUploadIcon/>} variant="contained" component="label" color="error" sx={{ margin: '30px 55px' }}>
         Upload and edit QF documents
+        <VisuallyHiddenInput type='file'/>
       </MuiButton>
       <TextContainer>
         <Image src={'./assets/home/hand@2x.png'} alt="" />
