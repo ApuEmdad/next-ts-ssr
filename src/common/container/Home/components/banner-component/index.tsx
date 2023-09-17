@@ -1,7 +1,5 @@
 import { MuiBox, MuiChip, MuiIconButton, MuiInputBase, MuiPaper } from '@/libs/mui-lib';
-
 import { styled, useMediaQuery } from '@mui/material';
-
 import { MuiSearch } from '@/libs/mui-icons';
 
 const Banner = () => {
@@ -81,8 +79,8 @@ const Banner = () => {
       <Wrapper>
 
         <MuiSearchPaper>
-          <MuiIconButton sx={{ p: '10px' }}>{/* <MuiSearch /> */}</MuiIconButton>
-          <MuiInputBase sx={{ ml: 1, flex: 1 }} placeholder='Search the quality framework ' />
+          <MuiIconButton sx={{ p: '10px' }}><MuiSearch /></MuiIconButton>
+          <MuiInputBase sx={{ flex: 1 }} placeholder='Search the quality framework ' />
         </MuiSearchPaper>
 
         <ChipsContainer>

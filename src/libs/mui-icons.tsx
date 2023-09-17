@@ -5,3 +5,4 @@ export const MuiFilterAltOff = dynamic(() => import('@mui/icons-material/FilterA
 export const MuiClose = dynamic(() => import('@mui/icons-material/Close'));
 export const MuiFilterAlt = dynamic(() => import('@mui/icons-material/FilterAlt'));
 export const MuiExpandMore = dynamic(() => import('@mui/icons-material/ExpandMore'));
+export const MuiSpa = dynamic(()=> import('@mui/icons-material/Spa'));

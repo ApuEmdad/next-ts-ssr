@@ -1,13 +1,9 @@
 import Image from 'next/image';
-
 import { useRef, useState } from 'react';
-
 import { styled, useMediaQuery } from '@mui/material';
-
 import {
   MuiBox, MuiButton, MuiTypography, MuiAvatar, MuiMenuItem, MuiMenu, MuiPaper
 } from '../../../libs/mui-lib';
-
 import './styles.module.scss';
 
 export const pages = ['Home', 'About the QF', 'QF Contacts', 'Quality Standard', 'QFSA Resources', 'QFSA Portal', 'QFSA Results'];
