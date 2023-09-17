@@ -39,7 +39,7 @@ const BottomSection = () => {
           below.
         </Text>
       </TextContainer>
-      <MuiButton startIcon={<CloudUploadIcon/>} variant="contained" component="label" color="error" sx={{ margin: '30px 55px' }}>
+      <MuiButton startIcon={<CloudUploadIcon/>} variant="contained" component={'label'} color="error" sx={{ margin: '30px 55px' }}>
         Upload and edit QF documents
         <VisuallyHiddenInput type='file'/>
       </MuiButton>

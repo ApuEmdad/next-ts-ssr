@@ -1,9 +1,5 @@
-import dynamic from 'next/dynamic';
-
 import styled from '@emotion/styled';
-
 import { MuiTypography, MuiContainer, MuiDivider, MuiGrid } from '@/libs/mui-lib';
-
 import Card from '../../../../components/card';
 
 const PrimaryActivities = () => {
@@ -15,7 +11,6 @@ const PrimaryActivities = () => {
     fontWeight: 'bold',
     color: '#000'
   });
-  /* ==== Styled Component === */
 
   return (
     <MuiContainer sx={{ padding: '70px 0px' }}>

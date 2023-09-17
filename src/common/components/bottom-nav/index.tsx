@@ -1,28 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 const AppRegistrationIcon = dynamic(() => import('@mui/icons-material/AppRegistration'));
 const LoginIcon = dynamic(() => import('@mui/icons-material/Login'));
 const WebIcon = dynamic(() => import('@mui/icons-material/Web'));
 const AccountCircleIcon = dynamic(() => import('@mui/icons-material/AccountCircle'));
 import {
-  MuiAppBar,
-  MuiContainer,
-  MuiToolbar,
-  MuiBox,
-  MuiButton,
-  MuiTypography,
-  MuiTooltip,
-  MuiIconButton,
-  MuiAvatar,
   MuiMenu,
 } from '../../../libs/mui-lib';
-import { CustomMenu, pages } from '../default-nav';
-
+import { CustomMenu, pages, settings } from '../default-nav';
 import { MuiBottomNavigation, MuiBottomNavigationAction, MuiMenuItem } from '../../../libs/mui-lib';
-
 // import './styles.module.scss';
 import dynamic from 'next/dynamic';
 import { styled, useMediaQuery } from '@mui/material';
+
 
 export default function BottomNav() {
   const [value, setValue] = useState('recents');
@@ -31,7 +21,6 @@ export default function BottomNav() {
     setValue(newValue);
   };
 
-  const user = ['profile', 'account', 'login'];
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -143,7 +132,7 @@ const BottomMenuItem = styled(MuiMenuItem)({
           }}
         >
           {
-            user.map((item, i) => <BottomMenuItem
+            settings.map((item, i) => <BottomMenuItem
               key={i}
               onClick={handleUserClose}>{item}</BottomMenuItem>)
           }
