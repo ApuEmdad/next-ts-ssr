@@ -6,7 +6,17 @@ import {
 } from '../../../libs/mui-lib';
 import './styles.module.scss';
 
-export const pages = ['Home', 'About the QF', 'QF Contacts', 'Quality Standard', 'QFSA Resources', 'QFSA Portal', 'QFSA Results'];
+import Link from 'next/link'
+
+export const pages = [
+  { name: 'Home', link: '/' },
+  { name: 'content-list', link: '/content-list' },
+  { name: 'todo', link: '/todo' },
+  { name: 'todo-photo', link: '/todo-photo' },
+  { name: 'Quality Standard', link: '/standard' },
+  { name: 'QFSA Portal', link: '/portal' },
+  { name: 'QFSA Results', link: '/results' },
+];
 export const settings = ['My Profile', 'Notification', 'Settings', 'Logout'];
 
 export default function DefaultNavbar() {
@@ -82,16 +92,19 @@ export default function DefaultNavbar() {
     <Wrapper>
       <NavBox>
         {/* Image */}
-        <MuiTypography variant='h5' sx={{ fontWeight: '700', cursor: 'pointer' }}>QUALITY FRAMEWORK</MuiTypography>
+        <Link href='/'>
+          <MuiTypography variant='h5' sx={{ fontWeight: '700', cursor: 'pointer' }}>QUALITY FRAMEWORK</MuiTypography>
+        </Link>
       </NavBox>
       <NavBox>
         {
-          pages.map((item, i) => <NavItem
-            key={i}>
-            <MuiTypography
-              sx={{ fontWeight: '700' }}
-              variant='body2'>{item}</MuiTypography>
-          </NavItem>)
+          pages.map((page, i) => (
+            <NavItem key={i}>
+              <MuiTypography sx={{ fontWeight: '700' }} variant='body2'>
+                <Link href={page.link}>{page.name}</Link>
+              </MuiTypography>
+            </NavItem>
+          ))
         }
       </NavBox>
 
