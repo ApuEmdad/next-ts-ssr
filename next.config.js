@@ -4,7 +4,7 @@ const nextConfig = {
   distDir: 'dist',
   output: 'standalone',
   images: {
-    domains: ['via.placeholder.com'], // Add the domain here
+    domains: ['via.placeholder.com', 'api.slingacademy.com'], // Add the domain here
   },
 };
 
