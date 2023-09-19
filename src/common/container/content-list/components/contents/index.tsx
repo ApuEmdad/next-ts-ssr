@@ -1,6 +1,6 @@
-import { MuiContainer, MuiPaper, MuiInputBase, MuiDivider, MuiIconButton } from '@/libs/mui-lib';
+import { MuiContainer, MuiPaper, MuiInputBase, MuiDivider, MuiIconButton } from 'qf/libs/mui-lib';
 import styled from '@emotion/styled';
-import { MuiClose, MuiSearch } from '@/libs/mui-icons';
+import { MuiClose, MuiSearch } from 'qf/libs/mui-icons';
 import { MediumScreenFilter } from '..';
 
 interface ContentsProps {

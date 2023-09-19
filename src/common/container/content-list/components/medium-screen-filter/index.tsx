@@ -1,7 +1,7 @@
-import { MuiFilterAlt, MuiExpandMore, MuiFilterAltOff } from '@/libs/mui-icons';
+import { MuiFilterAlt, MuiExpandMore, MuiFilterAltOff } from 'qf/libs/mui-icons';
 import {
   MuiBox, MuiButton, MuiContainer, MuiDrawer, MuiTypography, MuiAccordion, MuiAccordionDetails, MuiAccordionSummary, MuiFormControlLabel, MuiCheckbox
-} from '@/libs/mui-lib';
+} from 'qf/libs/mui-lib';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { languages } from '../../components/wide-screen-filter/index'

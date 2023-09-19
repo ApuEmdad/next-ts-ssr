@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { MuiBox, MuiContainer } from '@/libs/mui-lib';
+import { MuiBox, MuiContainer } from 'qf/libs/mui-lib';
 import { WideScreenFilter, Contents } from './components';
 import useMediaQuery from '@mui/material/useMediaQuery';
 

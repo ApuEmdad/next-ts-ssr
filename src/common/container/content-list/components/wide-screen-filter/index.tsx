@@ -1,8 +1,8 @@
 import {
   MuiPaper, MuiBox, MuiTypography, MuiDivider, MuiButton, MuiFormControlLabel, MuiCheckbox
-} from '@/libs/mui-lib';
+} from 'qf/libs/mui-lib';
 import styled from '@emotion/styled';
-import { MuiFilterAltOff } from '@/libs/mui-icons';
+import { MuiFilterAltOff } from 'qf/libs/mui-icons';
 
 export const languages = ['Arabic', 'English', 'French', 'Portuguese', 'Spanish'];
 

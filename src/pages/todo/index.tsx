@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next/types';
 
-import { IResponseTodo, ITodo } from '@/model/todo.model';
+import { IResponseTodo, ITodo } from 'qf/model/todo.model';
 
 const Todos = (response: IResponseTodo) => {
   const router = useRouter();

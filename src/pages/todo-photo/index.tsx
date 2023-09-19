@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { GetServerSideProps } from 'next/types';
 
-import { IPhoto, IResponsePhoto } from '@/model/photo.model';
+import { IPhoto, IResponsePhoto } from 'qf/model/photo.model';
 
 const Todo = (response: IResponsePhoto | any) => {
   const router = useRouter();

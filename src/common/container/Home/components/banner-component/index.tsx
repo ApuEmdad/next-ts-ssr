@@ -1,8 +1,8 @@
-import { MuiBox, MuiChip, MuiIconButton, MuiInputBase, MuiPaper } from '@/libs/mui-lib';
+import { MuiBox, MuiChip, MuiIconButton, MuiInputBase, MuiPaper } from 'qf/libs/mui-lib';
 
 import { styled, useMediaQuery } from '@mui/material';
 
-import { MuiSearch } from '@/libs/mui-icons';
+import { MuiSearch } from 'qf/libs/mui-icons';
 
 const Banner = () => {
   const chipsText = ['Climate', 'Environment', 'Communication'];
@@ -32,7 +32,7 @@ const Banner = () => {
     padding: '2px 30px',
     display: 'flex',
     alignItems: 'center',
-    width: isMd?'60%':'100%',
+    width: isMd ? '60%' : '100%',
     marginBottom: '26px',
   });
 
@@ -41,19 +41,19 @@ const Banner = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media(max-width: 867px)':{
-      flexDirection:'column',
-      gap:'0.5rem'
+    '@media(max-width: 867px)': {
+      flexDirection: 'column',
+      gap: '0.5rem'
 
     }
   });
 
   const Chips = styled(MuiBox)({
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    flexWrap:'wrap',
-    gap:'0.3rem'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '0.3rem'
   })
 
   const PopularText = styled('span')({
@@ -93,7 +93,7 @@ const Banner = () => {
             ))}
           </Chips>
         </ChipsContainer>
-        
+
       </Wrapper>
     </Container>
   );

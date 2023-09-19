@@ -1,4 +1,4 @@
-import { MuiContainer, MuiPaper, MuiBox, MuiTypography, MuiDivider, MuiButton } from '@/libs/mui-lib';
+import { MuiContainer, MuiPaper, MuiBox, MuiTypography, MuiDivider, MuiButton } from 'qf/libs/mui-lib';
 
 const Dummy = () => {
   return (

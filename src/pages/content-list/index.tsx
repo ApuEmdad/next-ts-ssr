@@ -1,4 +1,4 @@
-import ContentList from '@/common/container/content-list';
+import ContentList from 'qf/common/container/content-list';
 
 const ContentListPage = () => {
   return <ContentList />;

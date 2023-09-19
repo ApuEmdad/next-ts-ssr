@@ -1,4 +1,4 @@
-import { MuiBox, MuiTypography, MuiContainer, MuiButton } from '@/libs/mui-lib';
+import { MuiBox, MuiTypography, MuiContainer, MuiButton } from 'qf/libs/mui-lib';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import styled from '@emotion/styled';
 
@@ -28,7 +28,7 @@ const BottomSection = () => {
     whiteSpace: 'nowrap',
     width: 1,
   });
-  
+
 
   return (
     <MuiContainer sx={{ padding: '70px 0px' }}>
@@ -39,9 +39,9 @@ const BottomSection = () => {
           below.
         </Text>
       </TextContainer>
-      <MuiButton startIcon={<CloudUploadIcon/>} variant="contained" component="label" color="error" sx={{ margin: '30px 55px' }}>
+      <MuiButton startIcon={<CloudUploadIcon />} variant="contained" component="label" color="error" sx={{ margin: '30px 55px' }}>
         Upload and edit QF documents
-        <VisuallyHiddenInput type='file'/>
+        <VisuallyHiddenInput type='file' />
       </MuiButton>
       <TextContainer>
         <Image src={'./assets/home/hand@2x.png'} alt="" />

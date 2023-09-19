@@ -1,4 +1,4 @@
-import { MuiBox } from '@/libs/mui-lib';
+import { MuiBox } from 'qf/libs/mui-lib';
 import { Header } from '../header';
 import { useMediaQuery } from '@mui/material';
 

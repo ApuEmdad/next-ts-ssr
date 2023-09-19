@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 
-import { MuiTypography, MuiContainer, MuiDivider, MuiGrid } from '@/libs/mui-lib';
+import { MuiTypography, MuiContainer, MuiDivider, MuiGrid } from 'qf/libs/mui-lib';
 
 import styled from '@emotion/styled';
-import Card from '@/common/components/card';
+import Card from 'qf/common/components/card';
 const SupportingActivities = () => {
   const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
