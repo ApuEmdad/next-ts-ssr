@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import { MuiTypography, MuiContainer, MuiDivider, MuiGrid } from 'qf/libs/mui-lib';
 
-import Card from '../../../../components/card';
+import Card from 'qf/common/components/card';
 
 const PrimaryActivities = () => {
   const cards = [1, 2, 3, 4, 5, 6, 7, 8];

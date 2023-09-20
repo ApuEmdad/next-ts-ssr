@@ -1,7 +1,7 @@
 import { MuiContainer, MuiPaper, MuiInputBase, MuiDivider, MuiIconButton } from 'qf/libs/mui-lib';
 import styled from '@emotion/styled';
 import { MuiClose, MuiSearch } from 'qf/libs/mui-icons';
-import { MediumScreenFilter } from '..';
+import MediumScreenFilter from '../medium-screen-filter';
 
 interface ContentsProps {
   isWideScreen: Boolean
