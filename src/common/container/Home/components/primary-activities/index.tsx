@@ -1,5 +1,3 @@
-import dynamic from 'next/dynamic';
-
 import styled from '@emotion/styled';
 
 import { MuiTypography, MuiContainer, MuiDivider, MuiGrid } from 'qf/libs/mui-lib';

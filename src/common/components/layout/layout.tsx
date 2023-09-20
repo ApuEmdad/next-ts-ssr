@@ -2,7 +2,6 @@ import { MuiBox } from 'qf/libs/mui-lib';
 import { Header } from '../header';
 import { useMediaQuery } from '@mui/material';
 
-
 const LayOut = ({ children }: React.FC | any) => {
   const isMd = useMediaQuery('(min-width:900px)')
   return (

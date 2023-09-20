@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import BottomNav from '../bottom-nav';
 import DefaultNavbar from '../default-nav';
-
 // import './styles.module.scss';
 
 interface IProps {
